@@ -8,3 +8,6 @@ My Portfolio
   - 3D Multiplayer Engine
   - Homework Buddy
 - Could *maybe* be a little more formal
+
+Subpages
+*PLEASE NOTE:* A lot of my subpages are jokes or made for friends, so don't expect formality or really anything useful for that matter.
