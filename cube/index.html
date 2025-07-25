@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html>
+	<style>
+		div {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  height: 100%;
+		}
+
+		img {
+		  width: 50%;
+		  height: 50%;
+		}
+	</style>
+	
+	<body style="background-color:black;">
+		<div>
+			<img src="cubical.gif" style="width:10%">
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+	
+		<script>
+			var music = new Howl({
+				src: ['tvtime.ogg','tvtime.mp3'],
+				volume: 0.5,
+				loop: true
+			});
+			music.play();
+		</script>
+	</body>
+</html>
