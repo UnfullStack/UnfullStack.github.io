@@ -1,4 +1,5 @@
 from js import document
+import micropip
 micropip.install("requests")
 import requests
 
@@ -15,3 +16,4 @@ except requests.exceptions.RequestException as e:
     wlbl.innerHTML = f"Error contacting host: {e}"
 
 wlbl.innerHTML = f"Error contacting host: {e}"
+
