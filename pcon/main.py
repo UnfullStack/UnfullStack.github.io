@@ -1,5 +1,5 @@
 from js import document
-await micropip.install("requests")
+micropip.install("requests")
 import requests
 
 wlbl = document.getElementById("lbl_wait")
