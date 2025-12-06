@@ -1,6 +1,4 @@
 from js import document
-import micropip
-micropip.install("requests")
 import requests
 
 wlbl = document.getElementById("lbl_wait")
@@ -16,4 +14,3 @@ except requests.exceptions.RequestException as e:
     wlbl.innerHTML = f"Error contacting host: {e}"
 
 wlbl.innerHTML = f"Error contacting host: {e}"
-
