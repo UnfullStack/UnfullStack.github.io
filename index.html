@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://pyscript.net/releases/2024.2.1/core.css">
+		<script type="module" src="https://pyscript.net/releases/2024.2.1/core.js"></script>
+	</head>
+	
+	<body>
+		<h1>Samba path converter</h1>
+		<h4>Upload a full link for an asset on <a href="https://mcasset.cloud/1.20.1/" target="_blank">mcasset.cloud</a>. EX: https://mcasset.cloud/1.20.1/assets/minecraft/textures/block/amethyst_block.png</h4>
+	
+		<div>
+			<label for="user-input">Enter a mcasset.cloud URL:</label>
+			<input type="text" id="user-input"/>
+			<button py-click="handle">Convert</button>
+		</div>
+		
+		<p id="output">Output will appear here</p>
+	
+		<py-script>
+from js import document
+
+def handle(*args):
+	input_element = document.getElementById("user-input")
+	txt = input_element.value
+	txt = txt.replace("https://mcasset.cloud/1.20.1/","")
+	txt = txt.replace("/","\\")
+	document.getElementById("output").textContent = txt
+		</py-script>
+	</body>
+</html>
