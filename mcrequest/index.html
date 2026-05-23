@@ -1,0 +1,56 @@
+<html>
+	<title>MC Whitelist Request</title>
+	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	
+	<script type="text/javascript">
+	(function(){
+		emailjs.init({
+			publicKey: "daPLQ5c_Y0Uo41ke-",
+		});
+	})();
+	</script>
+	
+	<script>
+	async function getIp() {
+		try {
+			const response = await fetch('https://api.ipify.org?format=json');
+			const data = await response.json();
+			return data.ip;
+		} catch (error) {
+			console.error("Error fetching IP:", error);
+		}
+	}
+
+	function email(...args) {
+		emailjs.send("service_o9txqgm","template_b44uepe",{
+			username: args[1],
+			msg: args[2],
+			ip: args[0],
+			email: "mattbalbers@hotmail.com",
+		});
+	}
+
+	async function sendInfo(event) {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		
+		let adress = await getIp();
+		email(adress,formData.get("name"),formData.get("msg"));
+		
+		document.getElementById("fillout").remove();
+		
+		const label = document.createElement("p");
+		label.textContent = "Sent!";
+		document.body.appendChild(label);
+	}
+	</script>
+
+	<form onsubmit="sendInfo(event)" id="fillout">
+		<label for="name">MC Username:</label><br>
+		<input type="text" id="name" name="name" value=""><br>
+		<label for="msg">Message:</label><br>
+		<input type="text" id="msg" name="msg" value=""><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</html>
