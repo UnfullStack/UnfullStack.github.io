@@ -1,0 +1,30 @@
+<html>
+	<title>_w inner</title>
+	
+	<script>				
+		function reveal(btn) {
+			btn.style.display = "none";
+			const tobeheard = document.createElement('p');
+			tobeheard.textContent = "CONGRATULATION!!!";
+			tobeheard.style.color = "#ff00ff";
+			tobeheard.style.fontSize = "100px";
+			document.body.appendChild(tobeheard);
+			const tobeheard2 = document.createElement('p');
+			tobeheard2.textContent = "you have found it key";
+			tobeheard2.style.color = "#00ffff";
+			tobeheard2.style.fontSize = "30px";
+			document.body.appendChild(tobeheard2);
+			const tobeheard3 = document.createElement('p');
+			tobeheard3.textContent = "return later for the next";
+			tobeheard3.style.color = "#ffff00";
+			tobeheard3.style.fontSize = "20px";
+			document.body.appendChild(tobeheard3);
+			const speaker = new Audio('winner.wav');
+			speaker.play();
+		}
+	</script>
+	
+	<body style="background-color: black; text-align: center;">
+		<button onclick="reveal(this)">hear</button>
+	</body>
+</html>
