@@ -2,38 +2,77 @@ body {
     background-color: black;
 }
 
+p {
+    color: white;
+}
+
+figcaption {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+h2 {
+    color: white;
+}
+h3 {
+    color: white;
+}
+h4 {
+    color: white;
+}
+
+a {
+    color: red;
+    font-size: 1em;
+    transition: 0.25s ease-in-out; 
+}
+a:hover {
+    color:lightcoral;
+    font-size: 1.15em;
+}
+
+
 .center-text {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#blue-bar {
+.blue-bar {
     background-image: linear-gradient(to bottom, blue, darkblue);
     background-color: blue;
     color: white;
     width: 100%;
 }
 
-#red-bar {
+.red-bar {
     background-image: linear-gradient(to bottom, red, darkred);
     background-color: red;
     color: white;
     width: 100%;
 }
 
-#green-bar {
+.green-bar {
     background-image: linear-gradient(to bottom, green, darkgreen);
     background-color: green;
     color: white;
     width: 100%;
 }
 
-#navbar {
+.purple-bar {
+    background-image: linear-gradient(to bottom, purple, rebeccapurple);
+    background-color: purple;
+    color: white;
+    width: 100%;
+}
+
+.navbar {
     background-color: black;
 }
 
-#navbar a {
+.navbar a {
     color: white;
     padding-right: 4%;
 }
@@ -47,12 +86,12 @@ form {
     height: 100px;
 }
 
-h1 {
-    color: white;
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
 }
-h2 {
-    color: white;
-}
-h3 {
-    color: white;
+
+.gallery figure img {
+    width: 100%;
 }
