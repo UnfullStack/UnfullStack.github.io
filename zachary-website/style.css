@@ -28,32 +28,34 @@ label {
     justify-content: center;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
+.bar {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    width: 100%;
+}
+
 .blue-bar {
     background-image: linear-gradient(to bottom, blue, darkblue);
     background-color: blue;
-    color: white;
-    width: 100%;
 }
 
 .red-bar {
     background-image: linear-gradient(to bottom, red, darkred);
     background-color: red;
-    color: white;
-    width: 100%;
 }
 
 .green-bar {
     background-image: linear-gradient(to bottom, green, darkgreen);
     background-color: green;
-    color: white;
-    width: 100%;
 }
 
 .purple-bar {
     background-image: linear-gradient(to bottom, purple, rgb(80, 0, 80));
     background-color: purple;
-    color: white;
-    width: 100%;
 }
 
 .navbar {
@@ -120,14 +122,64 @@ form {
 
 /* dictionary variants */
 .dict-long li {
-    width:25%;
+    width:35%;
 }
 
-.dictionary li::before {
+.dict-long li::before {
     padding-left:3%;
     padding-right:3%;
 }
 
 .prim-contact {
     background-color: rgb(20, 68, 4);
+}
+
+/* home page leaves */
+@keyframes flutterX {
+    0%, 100% {
+        transform: translateX(calc(50px + var(--x-offset)));
+    }
+    50% {
+        transform: translateX(calc(30px + var(--x-offset)));
+    }
+}
+@keyframes flutterY {
+    0%, 100% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+@keyframes flutterR {
+    0%, 100% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-2deg);
+    }
+}
+
+.leaves {
+    --x-offset: 0px;
+    animation: flutterX 1s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation-duration: var(--dur, 2s);
+    animation-delay: var(--delay, 0s);
+    overflow-x: clip;
+}
+.leaves div {
+    animation: flutterY 1s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation-duration: var(--dur, 2s);
+    animation-delay: var(--delay, 0s);
+    transform-origin: bottom right;
+}
+.leaves div img {
+    animation: flutterR 1s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+    animation-duration: var(--dur, 2s);
+    animation-delay: var(--delay, 0s);
+    transform-origin: bottom right;
+    width: var(--wid, 25%);
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
