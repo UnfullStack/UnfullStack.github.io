@@ -6,14 +6,15 @@
         <meta charset="UTF-8">
         <title>ZA Portfolio - Home</title>
     </head>
-    <body class="no-scroll">
+    <body class="x-no-scroll y-no-scroll">
         <iframe src="navbar.html" frameborder="0" scrolling="no" width="100%" height="30px"></iframe>
         <div class="bar blue-bar">
             <h1 class="center-text">Zachary Albers</h1>
         </div>
         <p>My name is Zach. I've been into Computer Science since elementary school, and my passion has only grown.</p>
         <p>This website was created for my 10th Grade Web Applications class, and no AI tools were used in its creation.</p>
-        <a href="https://github.com/UnfullStack" target="_blank">My GitHub</a>
+        <p>The perlin noise library (perlin.js in the files) is called noisejs and was created by josephg and TyOverby on GitHub. It can be found <a class="a-blue" href="https://github.com/josephg/noisejs" target="_blank">here</a>.</p>
+        <a class="a-blue" href="https://github.com/UnfullStack" target="_blank">My GitHub</a>
         
         <!-- Repeated line breaks to make page taller so that leaves are position at the bottom -->
         <p>
@@ -33,6 +34,13 @@
                 <img src="imgs\leaves.png">
             </div>
         </div>
+
+        <p class="leaves-info">Leaves data: loading...</p>
+
+        <canvas class="noisy"></canvas>
     </body>
+
     <script src="leaves.js"></script>
+    <script src="perlin.js"></script>
+    <script src="noisy.js"></script>
 </html>

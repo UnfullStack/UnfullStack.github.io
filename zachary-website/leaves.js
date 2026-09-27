@@ -10,6 +10,9 @@ const items = document.querySelectorAll('.leaves');
 img_wmin = 200;
 img_wmax = 285;
 
+// string to hold leaf data
+ldata = "";
+
 // loop through leave classes
 items.forEach((item, _) => {
     // define duration and delay of each flutter animation
@@ -32,28 +35,28 @@ items.forEach((item, _) => {
     // x offset of leaves
     const off_x = `${randInt(-5,80)}px`
 
-    // chance to delete the leaves
-    const del = randInt(0,4);
+    // (REMOVED) chance to delete the leaves
+    //const del = randInt(0,4);
 
-    if (del != 0) {
-        // get each child/descendant
-        const sub1 = item.querySelector("div");
-        const sub2 = sub1.querySelector("img");
+    const sub1 = item.querySelector("div");
+    const sub2 = sub1.querySelector("img");
 
-        // set properties
-        item.style.setProperty('--dur', dur_x);
-        item.style.setProperty('--delay', del_x);
-        item.style.setProperty('--x-offset', off_x);
+    // set properties
+    item.style.setProperty('--dur', dur_x);
+    item.style.setProperty('--delay', del_x);
+    item.style.setProperty('--x-offset', off_x);
 
-        sub1.style.setProperty('--dur', dur_y);
-        sub1.style.setProperty('--delay', del_y);
+    sub1.style.setProperty('--dur', dur_y);
+    sub1.style.setProperty('--delay', del_y);
 
-        sub2.style.setProperty('--dur', dur_r);
-        sub2.style.setProperty('--delay', del_r);
+    sub2.style.setProperty('--dur', dur_r);
+    sub2.style.setProperty('--delay', del_r);
 
-        sub2.style.setProperty('--wid',img_w);
-    } else {
-        // delete
-        item.remove();
-    }
+    sub2.style.setProperty('--wid',img_w);
+
+    // add to the leaf data
+    ldata += `${dur_x},${del_x},${off_x},${dur_y},${del_y},${dur_r},${del_r},${img_w}|`;
 });
+
+// display leaf data
+document.querySelector(".leaves-info").textContent = "Leaves data: " + ldata.slice(0,-1);
