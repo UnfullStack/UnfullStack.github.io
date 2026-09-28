@@ -14,8 +14,8 @@ function draw_noise() {
         const y = Math.floor(i/4 / canv.height);
 
         // use noisejs to generate noise
-        val = noise.simplex3(x / 100, y / 100, count/40000000);
-        val = (val+1)*22;
+        val = noise.simplex3(x / 100, y / 100, count/32000000);
+        val = (val+1)*14;
 
         imgData.data[i] = val;
         imgData.data[i + 1] = val;
