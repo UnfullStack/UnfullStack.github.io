@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Dialog Generator</title>
+		<link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css">
+		<script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+	</head>
+
+	<body>
+		<h1>Dialog Generator</h1>
+		<h4>Dialog is seperated by lines and is formatted as speaker|text</h4>
+		<h4>If the speaker is "wait", then it will wait for text seconds</h4>
+		<h4>Example Dialog:</h4>
+		<p>Clark|Hey, did you get that stuff printed?</p>
+		<p>wait|2</p>
+		<p>Mike|Yeah, it's on the counter.</p>
+		<p>wait|2</p>
+		<p>Clark|Thanks.</p>
+		<p>wait|3</p>
+		<h4>Type here:</h4>
+		<textarea id="txt" name="txt" rows="30" cols="120"></textarea>
+		<p id="out">(Output will appear here)</p>
+	</body>
+	
+	<script type="py">
+from pyscript import document
+from pyodide.ffi import create_proxy
+from js import setInterval
+
+def update():
+	try:
+		inp = document.querySelector("#txt").value
+		fstr = ""
+		pyd = []
+		
+		i = 0
+		
+		lines = inp.split("\n")
+		for line in lines:
+			div = line.split("|")
+			speaker = div[0]
+			text = div[1]
+			if speaker != "wait":
+				pyd.append([
+					"speaker",
+					speaker
+				])
+				pyd.append([
+					"vis",
+					speaker
+				])
+				if i == 0:
+					pyd.append([
+						"vtravel",
+						"DEFAULT_HEIGHT",
+						1
+					])
+					pyd.append([
+						"wait",
+						1,
+					])
+				pyd.append([
+					"write",
+					text
+				])
+				
+			else:
+				pyd.append([
+					"wait",
+					float(text),
+				])
+			if i == len(lines)-1:
+				pyd.append([
+					"vtravel",
+					"LOWER_HEIGHT",
+					1,
+				])
+				pyd.append([
+					"wait",
+					1
+				])
+				pyd.append(["end"])	
+			i+=1
+			
+		fstr = str(pyd)
+		fstr = fstr.replace("[","{").replace("]","}")
+		fstr = fstr.replace("'DEFAULT_HEIGHT'","DEFAULT_HEIGHT")
+		fstr = fstr.replace("'LOWER_HEIGHT'","LOWER_HEIGHT")
+		
+		if document.querySelector("#out").innerText != fstr:
+			document.querySelector("#out").innerText = fstr
+	except:
+		document.querySelector("#out").innerText = "(Input is empty or invalid)"
+		pass
+	
+fproxy = create_proxy(update)
+setInterval(fproxy,1000)
+	</script>
+</html>
