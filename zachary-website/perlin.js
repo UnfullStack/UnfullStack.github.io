@@ -1,3 +1,8 @@
+// this is Zachary Albers writing these first few comments
+// !!! I DID NOT CREATE THIS CODE !!!
+// the GitHub repo for this code is linked on the front page
+// everything below this comment you are reading is not mine
+
 /*
  * A speed-improved perlin and simplex noise algorithms for 2D.
  *

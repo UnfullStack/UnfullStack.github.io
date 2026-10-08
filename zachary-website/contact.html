@@ -13,6 +13,7 @@
 
     <body>
         <iframe src="navbar.html" frameborder="0" scrolling="no" width="100%" height="30px"></iframe>
+        <!-- bar subclass (see index for explanation) -->
         <div class="bar green-bar">
             <h1 class="center-text">Contact</h1>
         </div>
@@ -20,11 +21,38 @@
         <h2>Fill out the form to send me a message.</h2>
         <h3>Include your email if you'd like a follow-up.</h3>
 
+        <!-- form connects to the javascript function that was loaded with the script earlier -->
         <form onsubmit="email(event)" id = "contact-form">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name"><br>
-            <label for="subj">Subject:</label><br>
-            <input type="text" id="subj" name="subj"><br>
+
+            <!-- subject radio buttons and dropdown -->
+            <!-- this used to be a text input, but was changed to meet requirements -->
+            <!-- the "value" attribute on all the inputs is what will appear in the email, so all it needs to accomplish is being understandable for me -->
+            <p>What type of message are you sending?</p>
+            <!-- first one is checked so that I don't have to check for blanks in js -->
+            <input type="radio" id="subj_feedback" name="subj_type1" value="feedback" checked>
+            <label for="subj_feedback">Feedback</label><br>
+            <input type="radio" id="subj_question" name="subj_type1" value="question">
+            <label for="subj_question">Question</label><br>
+            <input type="radio" id="subj_other" name="subj_type1" value="other">
+            <label for="subj_other">Other</label><br>
+            <p>Subject/specific topic?</p>
+            <label for="subj_type2"></label>
+            <select name="subj_type2" type="subj_type2">
+                <option value="website visuals">Website appearance/visuals</option>
+                <option value="website code">Website code</option>
+                <option value="website page">Specific website page</option>
+                <option value="website">Website (overall/general)</option>
+                <option value="comp sci">Computer science/coding (general)</option>
+                <option value="comp sci problem">Computer science/coding problem/challenge</option>
+                <option value="schedule">Schedule something</option>
+                <option value="me">Me (Zach)</option>
+                <option value="chat">Just chatting</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+
             <label for="msg">Message:</label><br>
             <textarea id="msg" name="msg" class="large-input"></textarea>
             <br><br>
@@ -33,8 +61,11 @@
 
         <h2>Direct Contact</h2>
         <h3>You can also contact me through one of these outlets:</h3>
+        <!-- dictionary with a subclass -->
         <ul class="dictionary dict-long" width:"40%">
+            <!-- primary/highlight subclass (see index and maybe skills) -->
             <li class="primary prim-contact">
+                <!-- same format as other dictionaries, see skills -->
                 <p>Email</p>
                 <hr>
                 <p>albers.zachary@gmail.com</p>

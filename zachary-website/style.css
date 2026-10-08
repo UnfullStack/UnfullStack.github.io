@@ -1,21 +1,21 @@
+/* basic styling */
+
 body {
     background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    /* margin left is 0 because it allows the noise and bars to be flush with the edge */
     margin-left: 0;
 }
 
 body > :not(.bar):not(.noisy) {
+    /* add the margin back for elements that aren't the bar or the noise*/
     margin-left: 8px;
 }
 
 figcaption {
     font-family: 'Courier New', Courier, monospace;
 }
-label {
-    font-family: 'Courier New', Courier, monospace;
-}
-
 
 .center-text {
     display: flex;
@@ -30,6 +30,7 @@ label {
     overflow-y: hidden;
 }
 
+/* github link styling */
 .github-links {
     display: flex;
     flex-flow: row wrap;
@@ -40,6 +41,7 @@ label {
     margin-bottom: 2px;
 }
 
+/* flexbox linebreak*/
 .flex-break {
     flex-basis: 100%;
     height: 0;
@@ -100,6 +102,11 @@ a:hover {
     background-color: purple;
 }
 
+.yellow-bar {
+    background-image: linear-gradient(to bottom, rgb(255, 191, 0), rgb(168, 132, 23));
+    background-color: rgb(255, 191, 0);
+}
+
 /* navbar */
 .navbar {
     background-color: black;
@@ -118,6 +125,14 @@ form {
 .large-input {
     width: 50%;
     height: 100px;
+}
+
+label, form p {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+form p {
+    font-weight: bold;
 }
 
 /* gallery */
@@ -180,6 +195,7 @@ form {
 }
 
 /* home page leaves */
+/* animations */
 @keyframes flutterX {
     0%, 100% {
         transform: translateX(calc(50px + var(--x-offset)));
@@ -205,6 +221,7 @@ form {
     }
 }
 
+/* classes */
 .leaves {
     --x-offset: 0px;
     animation: flutterX 1s cubic-bezier(0.37, 0, 0.63, 1) infinite;
@@ -245,4 +262,18 @@ form {
     width: 100vw;
     height: 90vh;
     z-index: -1;
+}
+
+/* golf game
+sizes are based off actual game size
+*/
+.golf-frame {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.golf-frame iframe {
+    width: 1366px;
+    height: 768px;
 }

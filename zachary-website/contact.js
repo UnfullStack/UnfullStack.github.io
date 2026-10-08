@@ -12,7 +12,8 @@ function email(...args) {
 
     // send the email with the form data and email info
     emailjs.send("service_zawebapps","template_zawebapps",{
-        subject: formData.get("subj"),
+        // combine both subject types
+        subject: formData.get("subj_type1")+": "+formData.get("subj_type2"),
         name: formData.get("name"),
         message: formData.get("msg"),
         email: "",
