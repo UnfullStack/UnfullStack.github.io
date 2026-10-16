@@ -34,20 +34,23 @@ def update():
 		
 		i = 0
 		
+		talked=""
+		
 		lines = inp.split("\n")
 		for line in lines:
 			div = line.split("|")
 			speaker = div[0]
 			text = div[1]
 			if speaker != "wait":
-				pyd.append([
-					"speaker",
-					speaker
-				])
-				pyd.append([
-					"vis",
-					speaker
-				])
+				if speaker != talked:
+					pyd.append([
+						"speaker",
+						speaker
+					])
+					pyd.append([
+						"vis",
+						speaker
+					])
 				if i == 0:
 					pyd.append([
 						"vtravel",
@@ -62,6 +65,7 @@ def update():
 					"write",
 					text
 				])
+				talked=speaker
 				
 			else:
 				pyd.append([
