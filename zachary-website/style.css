@@ -271,6 +271,13 @@ sizes are based off actual game size
     width: 100%;
     display: flex;
     justify-content: center;
+    /* these disable various touchscreen selection features */
+    /* before this, mobile users would hold down to aim, and the screen would be selected and turn blue */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .golf-frame iframe {
