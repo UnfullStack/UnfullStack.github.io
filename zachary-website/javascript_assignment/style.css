@@ -1,0 +1,70 @@
+/* thes things have backgrounds */
+body {
+    color: white;
+    background-image: url('bg.png');
+    background-repeat: repeat;
+    background-size: auto;
+    text-align: center;
+    font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
+}
+
+h1, section, div {
+    border: 2px solid rgb(17, 123, 158);
+    width: 40%;
+    margin: 0 auto;
+    background-image: url('bg2.png');
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+/* for boxes that should fit the content instead of having a set width */
+.box-fit {
+    width: fit-content;
+}
+
+.box-fit::before {
+    content: "\0000a0\0000a0\0000a0"; /* special character, used to add space between the edge and the text */
+}
+.box-fit::after {
+    content: "\0000a0\0000a0\0000a0";
+}
+
+/* links */
+a {
+    color: lightblue;
+}
+
+a:hover {
+    color: rgb(255, 253, 119);
+}
+
+/* lines */
+hr {
+    width: 60%;
+}
+
+/* buttons */
+button {
+    background-color: black;
+    color: aqua;
+    border-color: aqua;
+    transition: 0.25s ease-in-out;
+    font-size: .9em;
+}
+
+button:hover {
+    color: lightblue;
+    border-color: lightblue;
+    font-size: 1em;
+}
+
+/* other */
+.random-text {
+    height: 200px;
+    align-content: center;
+    background-image: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2em;
+    /* will be changed to be inverted of the text */
+    background-color: var(--bg,black);
+}

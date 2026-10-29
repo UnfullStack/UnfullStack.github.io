@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <title>ZA Portfolio - Javascript Assignment</title>
+    </head>
+    <body>
+        <h1 class="box-fit">This page is for a Web Applications assignment.</h1>
+        <h2>This assignment involved completing various tasks/functions using Javascript.</h2>
+
+        <!-- greeting based on time of day -->
+        <h3>Example 1: Dynamic Greeting</h3>
+        <div id="greetingOutput" class="box-fit">Loading...</div>
+
+        <!-- show text when button is clicked -->
+        <h3>Example 2: Click Detection</h3>
+        <button id="clickButton" onclick="setButtonText()">Click Me!</button>
+        <div id="buttonClickText" class="box-fit">Waiting...</div>
+
+        <!-- show date when button is clicked -->
+        <h3>Example 3: Clicking shows date</h3>
+        <button onclick="setDateButtonText()">Click to see the current date!</button>
+        <div id="dateButtonClickText" class="box-fit">Waiting...</div>
+
+        <!-- scramble text when button is clicked -->
+        <h3>Example 4: Clicking scrambles page text</h3>
+        <p>Click the button again to change it back!</p>
+        <button onclick="scrambleText()">Click to scramble text!</button>
+
+        <!-- sum inputted numbers when button is clicked -->
+        <h3>Example 5: JavaScript numeric values</h3>
+        <form>
+            <label for="n1">Number 1:</label>
+            <input type="number" id="n1" name="n1" value=""><br>
+            <label for="n2">Number 2:</label>
+            <input type="number" id="n2" name="n2" value=""><br>
+        </form>
+        <button onclick="sumNumbers()">Find Sum!</button>
+        <div id="finalSum" class="box-fit">Waiting...</div>
+
+        <!-- show the length of the inputted string -->
+        <h3>Example 6: Text Input and String Length</h3>
+        <form>
+            <input type="text" id="textLengthInput" value=""><br>
+        </form>
+        <button onclick="textLength()">Get Length</button>
+        <div id="textLengthOutput" class="box-fit">Waiting...</div>
+
+        <!-- show and hide a password -->
+        <h3>Example 7: Toggle Password Visibility</h3>
+        <form>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" value=""><br>
+            <label for="showPassword">Show Password</label>
+            <input type="checkbox" name="showPassword" id="showPassword" value="" onChange="updatePassword()">
+        </form>
+
+        <!-- change visual properties of element -->
+        <h3>Example 8: Change Visual Properties</h3>
+        <div id="styledText" class="random-text">Click the button below to change this text!</div>
+        <button onclick="styleText()">Randomize</button>
+
+        <!-- show and hide element -->
+        <h3>Example 9: Toggle Element</h3>
+        <div id="toggledElement">Click the button below to toggle this element!</div>
+        <button onclick="toggleElement()">Toggle</button>
+
+        <!-- load script -->
+        <script src="script.js"></script>
+    </body>
+</html>
