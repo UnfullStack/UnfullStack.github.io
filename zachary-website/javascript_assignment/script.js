@@ -129,5 +129,64 @@ function styleText() {
 }
 
 function toggleElement() {
-    document.getElementById("toggledElement").hidden = !document.getElementById("toggledElement").hidden
+    document.getElementById("toggledElement").hidden = !document.getElementById("toggledElement").hidden;
 }
+
+setInterval(function() {
+    // these lists have tame ranges where each action/animation occurs
+    const lefts = [
+        [7.1,9.2]
+    ];
+    const hops = [
+        [10.6,10.8],
+        [11.1,11.3],
+        [12.5,12.7],
+        [13,13.2]
+    ];
+    const rightStomps = [
+        [14.5,14.7],
+        [15,15.2]
+    ];
+
+    // get elements
+    let elems = document.querySelectorAll("*");
+    let snd = document.getElementById("chacha");
+    const stime = snd.currentTime;
+
+    // loop
+    for (let i = 0; i < elems.length; i++) {
+        let elem = elems[i];
+        // check that an element should not be excluded
+        if (elem.id != "styledText") {
+            let align = "center";
+            let rotate = "0deg";
+
+            // check each range to see if it should be happening
+            for (let v = 0; v < lefts.length; v++) {
+                let item = lefts[v];
+                if (stime >= item[0] && stime <= item[1]) {
+                    // set a value
+                    align = "left";
+                }
+            }
+            for (let v = 0; v < hops.length; v++) {
+                let item = hops[v];
+                if (stime >= item[0] && stime <= item[1]) {
+                    rotate = "180deg";
+                }
+            }
+            for (let v = 0; v < rightStomps.length; v++) {
+                let item = rightStomps[v];
+                if (stime >= item[0] && stime <= item[1]) {
+                    rotate = "180deg";
+                }
+            }
+
+            // set all values
+            elem.style = `text-align: ${align}; rotate: ${rotate};`;
+        }
+    }
+
+    // for finding times
+    //console.log(snd.currentTime);
+},10);
